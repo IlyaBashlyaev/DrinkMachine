@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Drink
+comment0.text=\r\n\ Einfache\ Datenklasse\ f\u00FCr\ ein\ Getr\u00E4nk.\r\n\ Enth\u00E4lt\:\r\n\ \ -\ Name\r\n\ \ -\ Preis\ (BigDecimal)\r\n\ \ -\ Bestand\ (int)\r\n\r\n\ Methoden\:\r\n\ \ -\ Getter\r\n\ \ -\ isAvailable()\:\ Bestand\ >\ 0?\r\n\ \ -\ dispenseOne()\:\ reduziert\ Bestand\ um\ 1\ (mit\ Schutz\ bei\ 0)\r\n\r\n
+comment1.params=name\ price\ stock
+comment1.target=Drink(java.lang.String,\ java.math.BigDecimal,\ int)
+comment1.text=\r\n\ @param\ name\ \ Anzeigename\ des\ Getr\u00E4nks\ (nicht\ leer)\r\n\ @param\ price\ Preis\ in\ Euro\ (>\=\ 0,\ zwei\ Nachkommastellen\ empfohlen)\r\n\ @param\ stock\ Anfangsbestand\ (>\=\ 0)\r\n
+comment2.params=
+comment2.target=java.lang.String\ getName()
+comment3.params=
+comment3.target=java.math.BigDecimal\ getPrice()
+comment4.params=
+comment4.target=int\ getStock()
+comment5.params=
+comment5.target=boolean\ isAvailable()
+comment5.text=@return\ true,\ wenn\ mindestens\ ein\ Exemplar\ verf\u00FCgbar\ ist.
+comment6.params=
+comment6.target=void\ dispenseOne()
+comment6.text=\r\n\ Gibt\ eine\ Einheit\ aus\ und\ reduziert\ den\ Bestand.\r\n\ @throws\ IllegalStateException\ wenn\ kein\ Bestand\ mehr\ vorhanden\ ist.\r\n
+numComments=7

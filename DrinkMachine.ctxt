@@ -1,0 +1,43 @@
+#BlueJ class context
+comment0.target=DrinkMachine
+comment0.text=\r\n\ \=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\r\n\ \ DRINK\ MACHINE\r\n\ \=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\r\n\ -\ Zweck\:\ Robuster,\ konsolenbasierter\ Getr\u00E4nkeautomat\ f\u00FCr\ 6\ Drinks\r\n\ -\ Features\:\r\n\ \ \ \ \u2022\ Saubere\ Eingabepr\u00FCfung\ (Men\u00FCauswahl,\ Geldbetr\u00E4ge)\r\n\ \ \ \ \u2022\ Abbruch\ jederzeit\ via\ 'q',\ 'quit'\ oder\ 'abbruch'\r\n\ \ \ \ \u2022\ BigDecimal\ f\u00FCr\ Preise/Geld\ (vermeidet\ Flie\u00DFkommafehler)\r\n\ \ \ \ \u2022\ Ausf\u00FChrliche\ Nutzerhinweise\ &\ Fehlermeldungen\r\n\r\n\ \ Warum\ BigDecimal?\r\n\ \ \ -\ double/float\ sind\ bin\u00E4r\ und\ f\u00FChren\ bei\ Geld\ zu\ Rundungsfehlern.\r\n\ \ \ -\ BigDecimal\ mit\ Scale\=2\ und\ RoundingMode.HALF_UP\ ist\ Standardpraxis.\r\n\r\n\ \ Datei-Layout\:\r\n\ \ \ -\ \u00D6ffentliche\ Klasse\ DrinkMachine\ (Einstiegspunkt\ mit\ main)\r\n\ \ \ -\ Paketlokale\ Klasse\ Drink\ (Datencontainer\ +\ einfache\ Logik)\r\n
+comment1.params=
+comment1.target=DrinkMachine()
+comment1.text=\r\n\ Konstruktor\:\ Bef\u00FCllt\ den\ Automaten\ mit\ 6\ Dummy-Getr\u00E4nken.\r\n\ Preisvorgaben\:\ 1\u00D7\ 2\u20AC,\ 3\u00D7\ 3\u20AC,\ 2\u00D7\ 4\u20AC.\r\n\ Zus\u00E4tzlich\ je\ ein\ Beispiel-Bestand.\r\n
+comment10.params=amount
+comment10.target=java.lang.String\ fmt(java.math.BigDecimal)
+comment10.text=Formatiert\ BigDecimal\ als\ Euro\ im\ deutschen\ Locale\ (z.\ B.\ 1,50\ \u20AC).
+comment11.params=in
+comment11.target=boolean\ isQuit(java.lang.String)
+comment11.text=Pr\u00FCft\ auf\ Abbruchbefehle\ (klein/\ gro\u00DF\ egal).
+comment12.params=
+comment12.target=java.lang.String\ readLine()
+comment12.text=\r\n\ Sicheres\ Einlesen\ einer\ Zeile.\r\n\ Scanner.nextLine()\ kann\ in\ seltenen\ F\u00E4llen\ Exceptions\ werfen,\r\n\ daher\ hier\ mit\ try/catch\ abgesichert.\ R\u00FCckgabe\ dann\ leere\ Zeichenkette.\r\n
+comment13.params=s
+comment13.target=java.math.BigDecimal\ bd(java.lang.String)
+comment13.text=\r\n\ Komfortfunktion\:\ Erzeugt\ BigDecimal\ mit\ Scale\=2\ und\ HALF_UP.\r\n\ Erwartet\ einen\ String\ im\ Punkt-Format\ ("2.00",\ "3.00",\ ...).\r\n
+comment2.params=args
+comment2.target=void\ main(java.lang.String[])
+comment2.text=Einstiegspunkt\ des\ Programms.
+comment3.params=
+comment3.target=void\ run()
+comment3.text=\r\n\ Hauptprogramm-Schleife\:\r\n\ 1)\ Men\u00FC\ anzeigen\r\n\ 2)\ Auswahl\ einlesen\ (mit\ Wiederholung/Validierung/Abbruch)\r\n\ 3)\ Falls\ verf\u00FCgbar\:\ Geld\ einnehmen\ (bis\ Preis\ erreicht\ oder\ Abbruch)\r\n\ 4)\ Ware\ ausgeben,\ R\u00FCckgeld\ berechnen,\ Bestand\ reduzieren\r\n\ 5)\ Zur\u00FCck\ zum\ Men\u00FC\r\n
+comment4.params=
+comment4.target=void\ printlnHeader()
+comment4.text=Begr\u00FC\u00DFung\ und\ Eingabehinweise\ einmalig\ ausgeben.
+comment5.params=
+comment5.target=void\ showMenu()
+comment5.text=\r\n\ Aktuelles\ Men\u00FC\ mit\ allen\ Getr\u00E4nken,\ Preisen\ und\ Best\u00E4nden\ anzeigen.\r\n\ AUSVERKAUFT\ wird\ deutlich\ gekennzeichnet.\r\n
+comment6.params=
+comment6.target=java.lang.Integer\ promptSelectionOrQuit()
+comment6.text=\r\n\ Fragt\ eine\ Men\u00FCauswahl\ ab.\r\n\ R\u00FCckgabe\:\r\n\ \ -\ Zahl\ zwischen\ 1\ und\ drinks.size()\r\n\ \ -\ null,\ wenn\ Nutzer\ 'q'/'quit'/'abbruch'\ eingibt\ (aktiver\ Abbruch)\r\n\r\n\ Validierung\:\r\n\ \ -\ Nur\ Ziffern\ erlaubt\ (RegEx\ "\\\\d+")\r\n\ \ -\ Bereichspr\u00FCfung\r\n\ \ -\ Fehler\ f\u00FChren\ zu\ erneuter\ Eingabeaufforderung\r\n
+comment7.params=d
+comment7.target=java.math.BigDecimal\ promptMoneyUntilPriceOrQuit(Drink)
+comment7.text=\r\n\ Fragt\ so\ lange\ Geldbetr\u00E4ge\ ab,\ bis\ der\ Preis\ des\ gew\u00E4hlten\ Getr\u00E4nks\ erreicht\ ist,\r\n\ oder\ der\ Nutzer\ aktiv\ abbricht.\r\n\r\n\ R\u00FCckgabe\:\r\n\ \ -\ Summe\ der\ eingezahlten\ Betr\u00E4ge\ (>\=\ Preis)\r\n\ \ -\ null\ bei\ aktivem\ Abbruch\ ('q'/'quit'/'abbruch')\r\n\r\n\ Validierung\:\r\n\ \ -\ Erlaubt\ sind\ Ganzzahlen\ (z.\ B.\ "2")\ oder\ Dezimalzahlen\ mit\ 1\u20132\ Nachkommastellen\r\n\ \ \ \ (z.\ B.\ "1,5"\ oder\ "1.50").\ RegEx\:\ "\\\\d+(?\:[.,]\\\\d{1,2})?"\r\n\ \ -\ Komma\ oder\ Punkt\ als\ Dezimaltrenner\ (wird\ einheitlich\ in\ '.'\ umgewandelt)\r\n\ \ -\ Negative\ oder\ 0-Betr\u00E4ge\ werden\ abgelehnt\r\n
+comment8.params=in
+comment8.target=java.util.Optional\ tryParsePositiveInt(java.lang.String)
+comment8.text=\r\n\ Parst\ einen\ positiven\ Integer\ (nur\ Ziffern,\ kein\ Vorzeichen).\r\n\ @param\ in\ Rohstring\ aus\ der\ Konsole\r\n\ @return\ Optional.of(Integer)\ bei\ Erfolg,\ sonst\ Optional.empty()\r\n
+comment9.params=in
+comment9.target=java.util.Optional\ tryParseMoney(java.lang.String)
+comment9.text=\r\n\ Parst\ einen\ Geldbetrag\ mit\ optionalen\ Nachkommastellen\ (1\u20132),\r\n\ akzeptiert\ Komma\ ODER\ Punkt\ als\ Dezimaltrenner.\r\n\r\n\ RegEx-Erkl\u00E4rung\:\r\n\ \ \ \\\\d+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ->\ mind.\ eine\ Ziffer\ (Ganzzahlteil)\r\n\ \ \ (?\:[.,]\\\\d{1,2})?\ \ \ \ ->\ optional\:\ Komma/Punkt\ +\ 1..2\ Ziffern\ (Nachkomma)\r\n\r\n\ Beispiele\ g\u00FCltig\:\ "2",\ "2.0",\ "2.00",\ "1,5",\ "1,50"\r\n\ Beispiele\ ung\u00FCltig\:\ "2.",\ "1,234",\ "-1",\ "abc",\ "1,2,3"\r\n
+numComments=14
