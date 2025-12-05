@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ac248886-0ca9-4a73-84d8-66371cf334d4" name="Changes" comment="Code changes with PaymentSystem">
+      <change beforePath="$PROJECT_DIR$/CashPayment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drink.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DrinkMachine.class" beforeDir="false" afterPath="$PROJECT_DIR$/DrinkMachine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DrinkMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/DrinkMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotDrink.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentMethod.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentSystem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProductCatalog.class" beforeDir="false" afterPath="$PROJECT_DIR$/ProductCatalog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProductCatalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProductCatalog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProductInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Snack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnackType.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;IlyaBashlyaev&quot;
+  }
+}</component>
+  <component name="GitLabMergeRequestFiltersHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPENED&quot;,
+    &quot;assignee&quot;: {
+      &quot;type&quot;: &quot;org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue&quot;,
+      &quot;username&quot;: &quot;IlyaBashlyaev&quot;,
+      &quot;fullname&quot;: &quot;Ilya Bashlyaev&quot;
+    }
+  }
+}</component>
+  <component name="GitLabMergeRequestsSettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;first&quot;: &quot;git@gitlab.com:IlyaBashlyaev/drinkmachine.git&quot;,
+    &quot;second&quot;: &quot;06893e5f-f03c-4da2-8a65-994bbcce4124&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/IlyaBashlyaev/DrinkMachine.git&quot;,
+    &quot;accountId&quot;: &quot;441acfcd-7d04-4419-8eda-5d208b1a2b9e&quot;
+  }
+}</component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/usr/local/Cellar/php/8.4.10/bin/php" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="32aMBJ36MdrGdjRphseT2YItumT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/Users/ilyabashlyaev/RBBK/Mittelstufe/STD/OOP/DrinkMachine/PaymentSystem",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/PaymentSystem" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/PaymentSystem 05.12.2025" />
+      <recent name="$PROJECT_DIR$/Dokumentation" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/payment_system" />
+      <recent name="$PROJECT_DIR$/PaymentSystem" />
+      <recent name="$PROJECT_DIR$/Dokumentation" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-PS-252.25557.128" />
+        <option value="bundled-php-predefined-a98d8de5180a-ce40d0652d34-com.jetbrains.php.sharedIndexes-PS-252.25557.128" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ac248886-0ca9-4a73-84d8-66371cf334d4" name="Changes" comment="" />
+      <created>1757654092581</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1757654092581</updated>
+      <workItem from="1757654093906" duration="5790000" />
+      <workItem from="1758473625043" duration="956000" />
+      <workItem from="1759909709453" duration="2102000" />
+      <workItem from="1759994098535" duration="1624000" />
+      <workItem from="1760354158678" duration="571000" />
+      <workItem from="1760624504248" duration="572000" />
+      <workItem from="1760683088581" duration="509000" />
+      <workItem from="1760709718770" duration="532000" />
+      <workItem from="1760773077664" duration="478000" />
+      <workItem from="1760791548070" duration="588000" />
+      <workItem from="1760947251886" duration="444000" />
+      <workItem from="1761216731922" duration="1702000" />
+      <workItem from="1761290306063" duration="803000" />
+      <workItem from="1761296204319" duration="65000" />
+      <workItem from="1761296343996" duration="616000" />
+      <workItem from="1761319760784" duration="526000" />
+      <workItem from="1763367648785" duration="530000" />
+      <workItem from="1763466749993" duration="577000" />
+      <workItem from="1763540814786" duration="550000" />
+      <workItem from="1763547963029" duration="1000" />
+      <workItem from="1763547981455" duration="590000" />
+      <workItem from="1763629925148" duration="599000" />
+      <workItem from="1763712147923" duration="309000" />
+      <workItem from="1763721225634" duration="838000" />
+      <workItem from="1763722329782" duration="3756000" />
+      <workItem from="1763973344752" duration="2666000" />
+      <workItem from="1764058915941" duration="522000" />
+      <workItem from="1764165493667" duration="516000" />
+      <workItem from="1764278349736" duration="592000" />
+      <workItem from="1764323954587" duration="5192000" />
+      <workItem from="1764861017090" duration="2019000" />
+      <workItem from="1764922610611" duration="7802000" />
+    </task>
+    <task id="LOCAL-00001" summary="Change README.md and Dokumentation.md">
+      <option name="closed" value="true" />
+      <created>1757654264679</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1757654264679</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Aktivitätsdiagramm, Codeverlauf und UML-Klassendiagramm hinzufügen">
+      <option name="closed" value="true" />
+      <created>1763722562136</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1763722562136</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Neue UML-Klassendiagrammen hinzufügen">
+      <option name="closed" value="true" />
+      <created>1764324842290</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1764324842290</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add classes Product and ProductCatalog">
+      <option name="closed" value="true" />
+      <created>1764924353315</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1764924353315</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Minor changes and bugfixing">
+      <option name="closed" value="true" />
+      <created>1764926595725</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1764926595725</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add classes Drink, HotDrink, Snack, SnackType and ProductInfo">
+      <option name="closed" value="true" />
+      <created>1764927260923</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1764927260923</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Code changes with PaymentSystem">
+      <option name="closed" value="true" />
+      <created>1764931264562</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1764931264562</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Change README.md and Dokumentation.md" />
+    <MESSAGE value="Aktivitätsdiagramm, Codeverlauf und UML-Klassendiagramm hinzufügen" />
+    <MESSAGE value="Neue UML-Klassendiagrammen hinzufügen" />
+    <MESSAGE value="Add classes Product and ProductCatalog" />
+    <MESSAGE value="Minor changes and bugfixing" />
+    <MESSAGE value="Add classes Drink, HotDrink, Snack, SnackType and ProductInfo" />
+    <MESSAGE value="Code changes with PaymentSystem" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code changes with PaymentSystem" />
+  </component>
+</project>

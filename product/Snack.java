@@ -1,9 +1,11 @@
+package product;
+
 import java.math.BigDecimal;
 
 /**
  * Snack mit Typ und Gewicht.
  */
-class Snack extends Product {
+public class Snack extends Product {
     private final SnackType type;
     private final int weightGram;
 

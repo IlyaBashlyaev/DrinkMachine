@@ -1,3 +1,5 @@
+package payment_system;
+
 import java.math.BigDecimal;
 
 public class PaymentSystem {

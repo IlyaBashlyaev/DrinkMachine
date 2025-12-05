@@ -1,6 +1,8 @@
+package product;
+
 import java.math.BigDecimal;
 
-class Product {
+public class Product {
     private final String name;
     private final BigDecimal price;
     private int stock;

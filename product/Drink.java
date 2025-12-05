@@ -1,9 +1,11 @@
+package product;
+
 import java.math.BigDecimal;
 
 /**
  * Repräsentiert ein Getränk mit optionaler Kühlung.
  */
-class Drink extends Product {
+public class Drink extends Product {
     private final boolean cooled;
 
     public Drink(String name, BigDecimal price, int stock, ProductInfo info, boolean cooled) {

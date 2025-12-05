@@ -1,4 +1,6 @@
-package payment_system;
+import payment_system.CashPayment;
+import payment_system.PaymentSystem;
+import product.Product;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

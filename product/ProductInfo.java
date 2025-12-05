@@ -1,7 +1,9 @@
+package product;
+
 /**
  * Zusätzliche Produktinformationen wie Beschreibung und Hersteller.
  */
-class ProductInfo {
+public class ProductInfo {
     private final String description;
     private final String ingredients;
     private final String manufacturer;

@@ -1,7 +1,9 @@
+package product;
+
 /**
  * Typ eines Snacks.
  */
-enum SnackType {
+public enum SnackType {
     SWEET,
     SALTY,
     HEALTHY

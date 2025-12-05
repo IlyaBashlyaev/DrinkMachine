@@ -1,9 +1,11 @@
+package product;
+
 import java.math.BigDecimal;
 
 /**
  * Heißgetränk mit Zieltemperatur.
  */
-class HotDrink extends Drink {
+public class HotDrink extends Drink {
     private final int targetTemperature;
 
     public HotDrink(String name, BigDecimal price, int stock, ProductInfo info, int targetTemperature) {
