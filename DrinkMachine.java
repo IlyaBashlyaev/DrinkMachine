@@ -95,9 +95,24 @@ public class DrinkMachine {
                 continue; // Zurück zum Menü
             }
 
-            boolean success = paymentSystem.pay(product.getPrice());
-            if (!success) System.out.println("Zahlung fehlgeschlagen.\n");
+            BigDecimal totalPaid = promptMoneyUntilPriceOrQuit(product);
+            if (totalPaid == null) {
+                System.out.println("Vorgang abgebrochen.\n");
+                continue;
+            }
 
+            boolean success = paymentSystem.pay(totalPaid);
+            if (!success) {
+                System.out.println("Zahlung fehlgeschlagen.\n");
+                continue;
+            }
+
+            product.dispenseOne();
+            BigDecimal change = totalPaid.subtract(product.getPrice());
+            System.out.println("\nDanke! Bitte entnehmen Sie: " + product.getName());
+            if (change.compareTo(BigDecimal.ZERO) > 0) {
+                System.out.println("Rückgeld: " + fmt(change));
+            }
             System.out.println("Verbleibender Bestand von \"" + product.getName() + "\": " + product.getStock());
             System.out.println(); // Leerzeile für Lesbarkeit
         }
@@ -110,7 +125,7 @@ public class DrinkMachine {
     /** Begrüßung und Eingabehinweise einmalig ausgeben. */
     private void printlnHeader() {
         System.out.println("====================================");
-        System.out.println("           DRINK MACHINE v1         ");
+        System.out.println("           DRINK MACHINE v2         ");
         System.out.println("====================================\n");
         System.out.println("Eingaben:");
         System.out.println("- Menü: Nummer des Getränks eingeben");
@@ -179,6 +194,44 @@ public class DrinkMachine {
         }
     }
 
+    /**
+     * Fragt so lange Geldbeträge ab, bis der Preis des gewählten Getränks erreicht ist,
+     * oder der Nutzer aktiv abbricht.
+     *
+     * Rückgabe:
+     *  - Summe der eingezahlten Beträge (>= Preis)
+     *  - null bei aktivem Abbruch ('q'/'quit'/'abbruch')
+     */
+    private BigDecimal promptMoneyUntilPriceOrQuit(Product product) {
+        System.out.println("\nAusgewählt: " + product.getName() + " (" + fmt(product.getPrice()) + ")");
+        BigDecimal total = BigDecimal.ZERO;
+
+        while (total.compareTo(product.getPrice()) < 0) {
+            BigDecimal missing = product.getPrice().subtract(total);
+            System.out.print("Bitte Betrag eingeben (fehlend: " + fmt(missing) + ", 'q' für Abbruch): ");
+            String in = readLine();
+
+            if (isQuit(in)) return null;
+
+            Optional<BigDecimal> maybe = tryParseMoney(in);
+            if (maybe.isEmpty()) {
+                System.out.println("Ungültige Eingabe. Bitte eine Zahl im Format z. B. 2, 2.00 oder 1,50 eingeben.");
+                continue;
+            }
+
+            BigDecimal value = maybe.get();
+            if (value.compareTo(BigDecimal.ZERO) <= 0) {
+                System.out.println("Bitte einen Betrag > 0 eingeben.");
+                continue;
+            }
+
+            total = total.add(value);
+            System.out.println("Bisher eingezahlt: " + fmt(total));
+        }
+
+        return total;
+    }
+
     // ------------------------------------------------------------------------
     // Parsing / Validierungs-Hilfen
     // ------------------------------------------------------------------------
@@ -198,6 +251,22 @@ public class DrinkMachine {
             return Optional.of(Integer.parseInt(s));
         } catch (NumberFormatException e) {
             // Sehr große Zahlen würden hier landen
+            return Optional.empty();
+        }
+    }
+
+    private Optional<BigDecimal> tryParseMoney(String in) {
+        String s = in.trim();
+
+        if (!s.matches("\\d+(?:[.,]\\d{1,2})?")) return Optional.empty();
+
+        s = s.replace(',', '.');
+
+        try {
+            BigDecimal val = new BigDecimal(s).setScale(2, RoundingMode.HALF_UP);
+            if (val.compareTo(BigDecimal.ZERO) < 0) return Optional.empty();
+            return Optional.of(val);
+        } catch (NumberFormatException e) {
             return Optional.empty();
         }
     }

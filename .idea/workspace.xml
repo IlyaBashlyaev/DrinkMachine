@@ -5,26 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac248886-0ca9-4a73-84d8-66371cf334d4" name="Changes" comment="Refactor files into product and payment_system folder">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumente_fuer_neue_Produkte/Liste_der_neuen_Produkte.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumente_fuer_neue_Produkte/Verbesserungsvorschlaege.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Changes 28.11.2025/Drink.java" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Changes 28.11.2025/Drink.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Changes 28.11.2025/Product (Abstract).java" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Changes 28.11.2025/Product (Abstract).java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Changes 28.11.2025/ProductCatalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Changes 28.11.2025/ProductCatalog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentation/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumentation/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentation/Aktivitaetsdiagramm.md" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumentation/Aktivitaetsdiagramm.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentation/Dokumentation.md" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumentation/Dokumentation.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentation/UML.md" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumentation/UML.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentation/UML_2.md" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumentation/UML_2.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentation/UML_alt.md" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumentation/UML_alt.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentation/UML_neu.md" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumentation/UML_neu.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumentation/Verlauf.md" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumentation/Verlauf.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentSystem 05.12.2025/CashPayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/PaymentSystem 05.12.2025/CashPayment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentSystem 05.12.2025/DrinkMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/PaymentSystem 05.12.2025/DrinkMachine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentSystem 05.12.2025/PaymentMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/PaymentSystem 05.12.2025/PaymentMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentSystem 05.12.2025/PaymentSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/PaymentSystem 05.12.2025/PaymentSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/package.bluej" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DrinkMachine.class" beforeDir="false" afterPath="$PROJECT_DIR$/DrinkMachine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DrinkMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/DrinkMachine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +136,7 @@
       <workItem from="1764278349736" duration="592000" />
       <workItem from="1764323954587" duration="5192000" />
       <workItem from="1764861017090" duration="2019000" />
-      <workItem from="1764922610611" duration="9803000" />
+      <workItem from="1764922610611" duration="13521000" />
     </task>
     <task id="LOCAL-00001" summary="Change README.md and Dokumentation.md">
       <option name="closed" value="true" />
