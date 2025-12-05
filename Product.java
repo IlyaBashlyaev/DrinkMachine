@@ -1,29 +1,27 @@
 import java.math.BigDecimal;
 
-/**
- * Einfache Datenklasse für ein Getränk.
- * Enthält:
- *  - Name
- *  - Preis (BigDecimal)
- *  - Bestand (int)
- *
- * Methoden:
- *  - Getter: getName(), getPrice() und getStock()
- *  - isAvailable(): Bestand > 0?
- *  - dispenseOne(): Reduziert Bestand um 1 (mit Schutz bei 0)
- *
- */
 class Product {
     private final String name;
     private final BigDecimal price;
     private int stock;
+    private final ProductInfo info;
 
     /**
-     * @param name  Anzeigename des Getränks (nicht leer)
+     * @param name  Anzeigename des Produkts (nicht leer)
      * @param price Preis in Euro (>= 0, zwei Nachkommastellen empfohlen)
      * @param stock Anfangsbestand (>= 0)
      */
     public Product(String name, BigDecimal price, int stock) {
+        this(name, price, stock, null);
+    }
+
+    /**
+     * @param name  Anzeigename des Produkts (nicht leer)
+     * @param price Preis in Euro (>= 0, zwei Nachkommastellen empfohlen)
+     * @param stock Anfangsbestand (>= 0)
+     * @param info  optionale Zusatzinformationen zum Produkt
+     */
+    public Product(String name, BigDecimal price, int stock, ProductInfo info) {
         if (name == null || name.isBlank()) throw new IllegalArgumentException("name");
         if (price == null || price.compareTo(BigDecimal.ZERO) < 0) throw new IllegalArgumentException("price");
         if (stock < 0) throw new IllegalArgumentException("stock");
@@ -31,11 +29,13 @@ class Product {
         this.name = name;
         this.price = price;
         this.stock = stock;
+        this.info = info;
     }
 
     public String getName() { return name; }
     public BigDecimal getPrice() { return price; }
     public int getStock() { return stock; }
+    public ProductInfo getInfo() { return info; }
 
     /** @return true, wenn mindestens ein Exemplar verfügbar ist. */
     public boolean isAvailable() { return stock > 0; }

@@ -28,7 +28,7 @@ import java.util.Scanner;
 public class DrinkMachine {
 
     // Katalog aller verfügbaren Produkte
-    private final ProductCatalog productCatalog = new DrinkCatalog();
+    private final ProductCatalog productCatalog = new ProductCatalog();
 
     // Ein Scanner für alle Konsoleneingaben (System.in NICHT schließen!)
     private final Scanner scanner = new Scanner(System.in);
