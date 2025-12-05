@@ -24,7 +24,7 @@ public class Product {
      * @param info  optionale Zusatzinformationen zum Produkt
      */
     public Product(String name, BigDecimal price, int stock, ProductInfo info) {
-        if (name == null || name.isBlank()) throw new IllegalArgumentException("name");
+        if (name == null || name.isEmpty()) throw new IllegalArgumentException("name");
         if (price == null || price.compareTo(BigDecimal.ZERO) < 0) throw new IllegalArgumentException("price");
         if (stock < 0) throw new IllegalArgumentException("stock");
 
@@ -32,6 +32,37 @@ public class Product {
         this.price = price;
         this.stock = stock;
         this.info = info;
+    }
+
+    public Product(
+            String name,
+            BigDecimal price,
+            int stock,
+            BigDecimal portionSize,
+            String portionUnit,
+            int kcalPerPortion,
+            BigDecimal sugarPerPortion,
+            BigDecimal fatPerPortion,
+            BigDecimal saturatedFatPerPortion,
+            int caffeineMgPerPortion
+    ) {
+        this(
+                name,
+                price,
+                stock,
+                new ProductInfo(
+                        name,
+                        "n/a",
+                        "n/a",
+                        portionSize,
+                        portionUnit,
+                        kcalPerPortion,
+                        sugarPerPortion,
+                        fatPerPortion,
+                        saturatedFatPerPortion,
+                        caffeineMgPerPortion
+                )
+        );
     }
 
     public String getName() { return name; }
