@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac248886-0ca9-4a73-84d8-66371cf334d4" name="Changes" comment="More bugfixing of the program">
+    <list default="true" id="ac248886-0ca9-4a73-84d8-66371cf334d4" name="Changes" comment="Implement the commit &quot;Updated everything to support the unified snack+drink machine with nutrition details&quot; to the master branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drink.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/Drink.ctxt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DrinkMachine.class" beforeDir="false" afterPath="$PROJECT_DIR$/DrinkMachine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DrinkMachine.ctxt" beforeDir="false" afterPath="$PROJECT_DIR$/DrinkMachine.ctxt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DrinkMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/DrinkMachine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_system/CashPayment.class" beforeDir="false" afterPath="$PROJECT_DIR$/payment_system/CashPayment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/payment_system/CashPayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment_system/CashPayment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment_system/PaymentMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment_system/PaymentMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment_system/PaymentSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment_system/PaymentSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/product/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/ProductInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/product/ProductInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/ProductInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/ProductInfo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +136,7 @@
       <workItem from="1764278349736" duration="592000" />
       <workItem from="1764323954587" duration="5192000" />
       <workItem from="1764861017090" duration="2019000" />
-      <workItem from="1764922610611" duration="18219000" />
+      <workItem from="1764922610611" duration="18860000" />
     </task>
     <task id="LOCAL-00001" summary="Change README.md and Dokumentation.md">
       <option name="closed" value="true" />
@@ -228,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764944102752</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Implement the commit &quot;Updated everything to support the unified snack+drink machine with nutrition details&quot; to the master branch">
+      <option name="closed" value="true" />
+      <created>1764976391445</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1764976391445</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,6 +254,7 @@
     <MESSAGE value="Refactor files into product and payment_system folder" />
     <MESSAGE value="Bugfixing of the program" />
     <MESSAGE value="More bugfixing of the program" />
-    <option name="LAST_COMMIT_MESSAGE" value="More bugfixing of the program" />
+    <MESSAGE value="Implement the commit &quot;Updated everything to support the unified snack+drink machine with nutrition details&quot; to the master branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement the commit &quot;Updated everything to support the unified snack+drink machine with nutrition details&quot; to the master branch" />
   </component>
 </project>
