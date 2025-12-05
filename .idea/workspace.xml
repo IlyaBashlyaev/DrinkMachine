@@ -4,20 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac248886-0ca9-4a73-84d8-66371cf334d4" name="Changes" comment="Code changes with PaymentSystem">
-      <change beforePath="$PROJECT_DIR$/CashPayment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drink.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DrinkMachine.class" beforeDir="false" afterPath="$PROJECT_DIR$/DrinkMachine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DrinkMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/DrinkMachine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HotDrink.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentMethod.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Product.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProductCatalog.class" beforeDir="false" afterPath="$PROJECT_DIR$/ProductCatalog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProductCatalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProductCatalog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProductInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snack.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnackType.java" beforeDir="false" />
+    <list default="true" id="ac248886-0ca9-4a73-84d8-66371cf334d4" name="Changes" comment="Refactor files into product and payment_system folder">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumente_fuer_neue_Produkte/Liste_der_neuen_Produkte.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumente_fuer_neue_Produkte/Verbesserungsvorschlaege.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Changes 28.11.2025/Drink.java" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Changes 28.11.2025/Drink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Changes 28.11.2025/Product (Abstract).java" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Changes 28.11.2025/Product (Abstract).java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Changes 28.11.2025/ProductCatalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Changes 28.11.2025/ProductCatalog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentation/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumentation/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentation/Aktivitaetsdiagramm.md" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumentation/Aktivitaetsdiagramm.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentation/Dokumentation.md" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumentation/Dokumentation.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentation/UML.md" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumentation/UML.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentation/UML_2.md" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumentation/UML_2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentation/UML_alt.md" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumentation/UML_alt.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentation/UML_neu.md" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumentation/UML_neu.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentation/Verlauf.md" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/Dokumentation/Verlauf.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentSystem 05.12.2025/CashPayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/PaymentSystem 05.12.2025/CashPayment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentSystem 05.12.2025/DrinkMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/PaymentSystem 05.12.2025/DrinkMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentSystem 05.12.2025/PaymentMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/PaymentSystem 05.12.2025/PaymentMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentSystem 05.12.2025/PaymentSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/PaymentSystem 05.12.2025/PaymentSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/_Ignored_files_/package.bluej" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +100,7 @@
       <recent name="$PROJECT_DIR$/Dokumentation" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/_Ignored_files_" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/payment_system" />
       <recent name="$PROJECT_DIR$/PaymentSystem" />
@@ -145,7 +153,7 @@
       <workItem from="1764278349736" duration="592000" />
       <workItem from="1764323954587" duration="5192000" />
       <workItem from="1764861017090" duration="2019000" />
-      <workItem from="1764922610611" duration="7802000" />
+      <workItem from="1764922610611" duration="9803000" />
     </task>
     <task id="LOCAL-00001" summary="Change README.md and Dokumentation.md">
       <option name="closed" value="true" />
@@ -203,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764931264562</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Refactor files into product and payment_system folder">
+      <option name="closed" value="true" />
+      <created>1764932055474</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1764932055474</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,6 +244,7 @@
     <MESSAGE value="Minor changes and bugfixing" />
     <MESSAGE value="Add classes Drink, HotDrink, Snack, SnackType and ProductInfo" />
     <MESSAGE value="Code changes with PaymentSystem" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code changes with PaymentSystem" />
+    <MESSAGE value="Refactor files into product and payment_system folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor files into product and payment_system folder" />
   </component>
 </project>
