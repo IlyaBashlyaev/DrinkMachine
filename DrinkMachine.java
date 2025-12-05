@@ -44,6 +44,10 @@ public class DrinkMachine {
     // New Payment System
     private final PaymentSystem paymentSystem = new PaymentSystem(new CashPayment());
 
+    // Merkt sich zuletzt eingezahlten Betrag im Bezahlvorgang (für Rückgabe bei Abbruch)
+    private BigDecimal lastCollectedPayment = BigDecimal.ZERO;
+    private boolean lastPaymentAborted = false;
+
     /**
      * Konstruktor: Befüllt den Automaten mit 6 Dummy-Getränken.
      * Preisvorgaben: 1× 2€, 3× 3€, 2× 4€.
@@ -97,12 +101,16 @@ public class DrinkMachine {
 
             BigDecimal totalPaid = promptMoneyUntilPriceOrQuit(product);
             if (totalPaid == null) {
+                if (lastPaymentAborted && lastCollectedPayment.compareTo(BigDecimal.ZERO) > 0) {
+                    paymentSystem.refund(lastCollectedPayment);
+                }
                 System.out.println("Vorgang abgebrochen.\n");
                 continue;
             }
 
-            boolean success = paymentSystem.pay(totalPaid);
+            boolean success = paymentSystem.pay(product.getPrice());
             if (!success) {
+                paymentSystem.refund(totalPaid);
                 System.out.println("Zahlung fehlgeschlagen.\n");
                 continue;
             }
@@ -111,6 +119,7 @@ public class DrinkMachine {
             BigDecimal change = totalPaid.subtract(product.getPrice());
             System.out.println("\nDanke! Bitte entnehmen Sie: " + product.getName());
             if (change.compareTo(BigDecimal.ZERO) > 0) {
+                paymentSystem.refund(change);
                 System.out.println("Rückgeld: " + fmt(change));
             }
             System.out.println("Verbleibender Bestand von \"" + product.getName() + "\": " + product.getStock());
@@ -211,7 +220,11 @@ public class DrinkMachine {
             System.out.print("Bitte Betrag eingeben (fehlend: " + fmt(missing) + ", 'q' für Abbruch): ");
             String in = readLine();
 
-            if (isQuit(in)) return null;
+            if (isQuit(in)) {
+                lastCollectedPayment = total;
+                lastPaymentAborted = true;
+                return null;
+            }
 
             Optional<BigDecimal> maybe = tryParseMoney(in);
             if (maybe.isEmpty()) {
@@ -229,6 +242,8 @@ public class DrinkMachine {
             System.out.println("Bisher eingezahlt: " + fmt(total));
         }
 
+        lastCollectedPayment = total;
+        lastPaymentAborted = false;
         return total;
     }
 
