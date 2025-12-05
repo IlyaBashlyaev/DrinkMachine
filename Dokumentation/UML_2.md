@@ -22,6 +22,7 @@ classDiagram
   }
 
   class Product {
+      Entwickler: Colin
       <<abstract>>
       - String name
       - BigDecimal price
@@ -35,39 +36,29 @@ classDiagram
       + increaseStock(int amount) void
   }
 
-    class Drink {
-        -boolean cooled
-        +Getraenk(String id, String name, BigDecimal preis, int bestand, ProduktInfo info, boolean gekuehlt)
-    }
+  class ColdDrink {
+      + ColdProduct(String name, BigDecimal price, int stock)
+  }
 
-    class HotDrink {
-        -int targetTemperature
-        +Heissgetraenk(String name, BigDecimal price, int stock, ProduktInfo info, int targetTemperature)
-    }
+  class HotDrink {
+      - int targetTemperature
+      + HotProduct(String name, BigDecimal price, int stock, int targetTemperatureC)
+  }
 
-    class Snack {
-        -SnackTyp type
-        -int weightGram
-        
-        +Snack(String id, String name, BigDecimal price, int stock, ProduktInfo info, SnackTyp type, int weightGram)
-    }
+  class Snack {
+      - boolean isSweet
+      + Snack(String name, BigDecimal price, int stock, boolean isSweet)
+  }
 
-    class ProductInfo {
-        -String description
-        -String ingredients
-        -String manufacturer
-        +ProductInfo(String description, String ingredients, String manufacturer)
-        +toDisplayText() String
-    }
-
-    class SnackType {
-        <<enumeration>>
-        SWEET
-        SALTY
-        HEALTHY
-    }
+  class ProductInfo {
+      - String description
+      - String ingredients
+      + ProductInfo(String description, String ingredients)
+      + toDisplayText() String
+  }
 
   class ProductCatalog {
+      Entwickler: Illia
       - List~Product~ products
       + ProductCatalog()
       + registerProduct(Product p) void
@@ -77,6 +68,7 @@ classDiagram
   }
 
   class PaymentSystem {
+      Entwickler: Tatiana
       - PaymentMethod method
       + PaymentSystem(PaymentMethod method)
       + boolean pay(BigDecimal amount)
@@ -87,9 +79,8 @@ classDiagram
   DrinkMachine "1" *-- "1" ProductCatalog : manages
   ProductCatalog "1" o-- "*" Product : contains
   Product "1" *-- "0..1" ProductInfo : includes
-  Product <|-- Drink
-  Drink <|-- HotDrink
-Product <|-- Snack
-  Snack --> SnackType
+  Product <|-- ColdDrink
+  Product <|-- HotDrink
+  Product <|-- Snack
   DrinkMachine --> PaymentSystem : uses
 ```

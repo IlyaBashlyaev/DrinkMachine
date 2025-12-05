@@ -8,12 +8,12 @@ import java.math.BigDecimal;
  *  - Bestand (int)
  *
  * Methoden:
- *  - Getter
+ *  - Getter: getName(), getPrice() und getStock()
  *  - isAvailable(): Bestand > 0?
- *  - dispenseOne(): reduziert Bestand um 1 (mit Schutz bei 0)
+ *  - dispenseOne(): Reduziert Bestand um 1 (mit Schutz bei 0)
  *
  */
-abstract class Product {
+class Product {
     private final String name;
     private final BigDecimal price;
     private int stock;
@@ -23,7 +23,7 @@ abstract class Product {
      * @param price Preis in Euro (>= 0, zwei Nachkommastellen empfohlen)
      * @param stock Anfangsbestand (>= 0)
      */
-    protected Product(String name, BigDecimal price, int stock) {
+    public Product(String name, BigDecimal price, int stock) {
         if (name == null || name.isBlank()) throw new IllegalArgumentException("name");
         if (price == null || price.compareTo(BigDecimal.ZERO) < 0) throw new IllegalArgumentException("price");
         if (stock < 0) throw new IllegalArgumentException("stock");
@@ -49,9 +49,5 @@ abstract class Product {
         stock--;
     }
 
-    public void increaseStock(int amount) {
-
-        stock = amount + stock;
-
-    }
+    public void increaseStock(int amount) { stock += amount; }
 }
