@@ -1,7 +1,6 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -28,8 +27,8 @@ import java.util.Scanner;
  */
 public class DrinkMachine {
 
-    // Liste aller verfügbaren Getränke
-    private final List<Drink> drinks = new ArrayList<>();
+    // Katalog aller verfügbaren Produkte
+    private final ProductCatalog productCatalog = new DrinkCatalog();
 
     // Ein Scanner für alle Konsoleneingaben (System.in NICHT schließen!)
     private final Scanner scanner = new Scanner(System.in);
@@ -43,12 +42,12 @@ public class DrinkMachine {
      * Zusätzlich je ein Beispiel-Bestand.
      */
     public DrinkMachine() {
-        drinks.add(new Drink("AquaPlus",  bd("2.00"), 8)); // 1× 2 €
-        drinks.add(new Drink("FizzCola",  bd("3.00"), 5)); // 3× 3 €
-        drinks.add(new Drink("OrangePop", bd("3.00"), 5));
-        drinks.add(new Drink("MateMax",   bd("3.00"), 5));
-        drinks.add(new Drink("EnergyX",   bd("4.00"), 4)); // 2× 4 €
-        drinks.add(new Drink("ColdBrew",  bd("4.00"), 3));
+        productCatalog.registerProduct(new Product("AquaPlus",  bd("2.00"), 8)); // 1× 2 €
+        productCatalog.registerProduct(new Product("FizzCola",  bd("3.00"), 5)); // 3× 3 €
+        productCatalog.registerProduct(new Product("OrangePop", bd("3.00"), 5));
+        productCatalog.registerProduct(new Product("MateMax",   bd("3.00"), 5));
+        productCatalog.registerProduct(new Product("EnergyX",   bd("4.00"), 4)); // 2× 4 €
+        productCatalog.registerProduct(new Product("ColdBrew",  bd("4.00"), 3));
     }
 
     /** Einstiegspunkt des Programms. */
@@ -80,32 +79,32 @@ public class DrinkMachine {
 
             // Index in der Liste bestimmen (Menü beginnt bei 1)
             int idx = choice - 1;
-            Drink d = drinks.get(idx);
+            Product product = productCatalog.allProducts().get(idx);
 
             // Verfügbarkeitsprüfung (Bestand > 0)
-            if (!d.isAvailable()) {
-                System.out.println("Hinweis: \"" + d.getName() + "\" ist leider ausverkauft.");
+            if (!product.isAvailable()) {
+                System.out.println("Hinweis: \"" + product.getName() + "\" ist leider ausverkauft.");
                 continue; // Zurück zum Menü
             }
 
             // Geld sammeln; null -> Vorgang abgebrochen
-            BigDecimal totalPaid = promptMoneyUntilPriceOrQuit(d);
+            BigDecimal totalPaid = promptMoneyUntilPriceOrQuit(product);
             if (totalPaid == null) {
                 System.out.println("Vorgang abgebrochen.\n");
                 continue;
             }
 
             // Kauf durchführen: Bestand mindern, Rückgeld berechnen, Ausgabe
-            d.dispenseOne();
-            BigDecimal change = totalPaid.subtract(d.getPrice());
-            System.out.println("\nDanke! Bitte entnehmen Sie: " + d.getName());
+            product.dispenseOne();
+            BigDecimal change = totalPaid.subtract(product.getPrice());
+            System.out.println("\nDanke! Bitte entnehmen Sie: " + product.getName());
 
             // Nur ausgeben, wenn tatsächlich Rückgeld > 0
             if (change.compareTo(BigDecimal.ZERO) > 0) {
                 System.out.println("Rückgeld: " + fmt(change));
             }
 
-            System.out.println("Verbleibender Bestand von \"" + d.getName() + "\": " + d.getStock());
+            System.out.println("Verbleibender Bestand von \"" + product.getName() + "\": " + product.getStock());
             System.out.println(); // Leerzeile für Lesbarkeit
         }
     }
@@ -130,15 +129,16 @@ public class DrinkMachine {
      * AUSVERKAUFT wird deutlich gekennzeichnet.
      */
     private void showMenu() {
+        List<Product> products = productCatalog.allProducts();
         System.out.println("=== Auswahl ===");
-        for (int i = 0; i < drinks.size(); i++) {
-            Drink d = drinks.get(i);
+        for (int i = 0; i < products.size(); i++) {
+            Product product = products.get(i);
             String line = String.format(
                     "%d) %-12s  Preis: %s  %s",
                     i + 1,
-                    d.getName(),
-                    fmt(d.getPrice()),
-                    d.isAvailable() ? "(Bestand: " + d.getStock() + ")" : "(AUSVERKAUFT)"
+                    product.getName(),
+                    fmt(product.getPrice()),
+                    product.isAvailable() ? "(Bestand: " + product.getStock() + ")" : "(AUSVERKAUFT)"
             );
             System.out.println(line);
         }
@@ -148,7 +148,7 @@ public class DrinkMachine {
     /**
      * Fragt eine Menüauswahl ab.
      * Rückgabe:
-     *  - Zahl zwischen 1 und drinks.size()
+     *  - Zahl zwischen 1 und Anzahl der Produkte
      *  - null, wenn Nutzer 'q'/'quit'/'abbruch' eingibt (aktiver Abbruch)
      *
      * Validierung:
@@ -157,8 +157,10 @@ public class DrinkMachine {
      *  - Fehler führen zu erneuter Eingabeaufforderung
      */
     private Integer promptSelectionOrQuit() {
+        int productCount = productCatalog.allProducts().size();
+
         while (true) {
-            System.out.print("\nBitte Auswahl eingeben (1-" + drinks.size() + ", oder 'q'): ");
+            System.out.print("\nBitte Auswahl eingeben (1-" + productCount + ", oder 'q'): ");
             String in = readLine();
 
             // Aktiver Abbruch
@@ -167,15 +169,15 @@ public class DrinkMachine {
             // Versuch, einen positiven Integer zu parsen
             Optional<Integer> maybeInt = tryParsePositiveInt(in);
             if (maybeInt.isEmpty()) {
-                System.out.println("Ungültige Eingabe. Bitte eine Zahl zwischen 1 und " + drinks.size() + " eingeben.");
+                System.out.println("Ungültige Eingabe. Bitte eine Zahl zwischen 1 und " + productCount + " eingeben.");
                 continue; // Nochmal probieren
             }
 
             int value = maybeInt.get();
 
             // Bereichsprüfung (Menü beginnt bei 1)
-            if (value < 1 || value > drinks.size()) {
-                System.out.println("Ungültige Auswahl. Bitte 1-" + drinks.size() + " wählen.");
+            if (value < 1 || value > productCount) {
+                System.out.println("Ungültige Auswahl. Bitte 1-" + productCount + " wählen.");
                 continue;
             }
 
@@ -197,13 +199,13 @@ public class DrinkMachine {
      *  - Komma oder Punkt als Dezimaltrenner (wird einheitlich in '.' umgewandelt)
      *  - Negative oder 0-Beträge werden abgelehnt
      */
-    private BigDecimal promptMoneyUntilPriceOrQuit(Drink d) {
-        System.out.println("\nAusgewählt: " + d.getName() + " (" + fmt(d.getPrice()) + ")");
+    private BigDecimal promptMoneyUntilPriceOrQuit(Product product) {
+        System.out.println("\nAusgewählt: " + product.getName() + " (" + fmt(product.getPrice()) + ")");
         BigDecimal total = BigDecimal.ZERO;
 
         // Solange weiter einwerfen, bis total >= Preis
-        while (total.compareTo(d.getPrice()) < 0) {
-            BigDecimal missing = d.getPrice().subtract(total);
+        while (total.compareTo(product.getPrice()) < 0) {
+            BigDecimal missing = product.getPrice().subtract(total);
             System.out.print("Bitte Betrag eingeben (fehlend: " + fmt(missing) + ", 'q' für Abbruch): ");
             String in = readLine();
 
@@ -326,4 +328,3 @@ public class DrinkMachine {
         return new BigDecimal(s).setScale(2, RoundingMode.HALF_UP);
     }
 }
-

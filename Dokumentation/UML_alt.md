@@ -34,7 +34,7 @@ classDiagram
         - final BigDecimal price
         - int stock
         
-        + Drink(String name, BigDecimal price, int stock)
+        + Product(String name, BigDecimal price, int stock)
         + getName() String
         + getPrice() BigDecimal
         + getStock() int
@@ -118,7 +118,7 @@ classDiagram
 
 | Methode | Rückgabetyp | Parameter | Validierung | Beschreibung |
 |---------|-------------|-----------|-------------|--------------|
-| Drink() | - | name: String<br/>price: BigDecimal<br/>stock: int | name ≠ null/empty<br/>price ≥ 0<br/>stock ≥ 0 | Konstruktor mit Parametervalidierung |
+| Product() | - | name: String<br/>price: BigDecimal<br/>stock: int | name ≠ null/empty<br/>price ≥ 0<br/>stock ≥ 0 | Konstruktor mit Parametervalidierung |
 | getName() | String | - | - | Getter für Getränkename |
 | getPrice() | BigDecimal | - | - | Getter für Preis |
 | getStock() | int | - | - | Getter für aktuellen Bestand |

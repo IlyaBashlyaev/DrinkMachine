@@ -13,7 +13,7 @@ import java.math.BigDecimal;
  *  - dispenseOne(): reduziert Bestand um 1 (mit Schutz bei 0)
  *
  */
-class Drink {
+abstract class Product {
     private final String name;
     private final BigDecimal price;
     private int stock;
@@ -23,7 +23,7 @@ class Drink {
      * @param price Preis in Euro (>= 0, zwei Nachkommastellen empfohlen)
      * @param stock Anfangsbestand (>= 0)
      */
-    public Drink(String name, BigDecimal price, int stock) {
+    protected Product(String name, BigDecimal price, int stock) {
         if (name == null || name.isBlank()) throw new IllegalArgumentException("name");
         if (price == null || price.compareTo(BigDecimal.ZERO) < 0) throw new IllegalArgumentException("price");
         if (stock < 0) throw new IllegalArgumentException("stock");
@@ -47,5 +47,11 @@ class Drink {
     public void dispenseOne() {
         if (!isAvailable()) throw new IllegalStateException("Ausverkauft.");
         stock--;
+    }
+
+    public void increaseStock(int amount) {
+
+        stock = amount + stock;
+
     }
 }

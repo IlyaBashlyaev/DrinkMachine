@@ -22,12 +22,12 @@ public static void main(String[] args) {
 
 ```java path=/Users/ilyabashlyaev/RBBK/Mittelstufe/STD/OOP/DrinkMachine/DrinkMachine.java start=45
 public DrinkMachine() {
-    drinks.add(new Drink("AquaPlus",  bd("2.00"), 8)); // 1× 2 €
-    drinks.add(new Drink("FizzCola",  bd("3.00"), 5)); // 3× 3 €
-    drinks.add(new Drink("OrangePop", bd("3.00"), 5));
-    drinks.add(new Drink("MateMax",   bd("3.00"), 5));
-    drinks.add(new Drink("EnergyX",   bd("4.00"), 4)); // 2× 4 €
-    drinks.add(new Drink("ColdBrew",  bd("4.00"), 3));
+    drinks.add(new Product("AquaPlus",  bd("2.00"), 8)); // 1× 2 €
+    drinks.add(new Product("FizzCola",  bd("3.00"), 5)); // 3× 3 €
+    drinks.add(new Product("OrangePop", bd("3.00"), 5));
+    drinks.add(new Product("MateMax",   bd("3.00"), 5));
+    drinks.add(new Product("EnergyX",   bd("4.00"), 4)); // 2× 4 €
+    drinks.add(new Product("ColdBrew",  bd("4.00"), 3));
 }
 ```
 
@@ -402,7 +402,7 @@ public static void main(String[] args)
 
 **Konstruktor:**
 ```java path=/Users/ilyabashlyaev/RBBK/Mittelstufe/STD/OOP/DrinkMachine/Drink.java start=26
-public Drink(String name, BigDecimal price, int stock)
+public Product(String name, BigDecimal price, int stock)
 ```
 - **Parameter:**
   - `name`: Getränkename (nicht null/leer)
