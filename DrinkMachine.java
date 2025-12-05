@@ -1,6 +1,9 @@
+package payment_system;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -35,6 +38,9 @@ public class DrinkMachine {
 
     // Landesformat für Währung (Deutsch, Euro mit Komma als Dezimaltrenner)
     private final NumberFormat CURRENCY = NumberFormat.getCurrencyInstance(Locale.GERMANY);
+
+    // New Payment System
+    private final PaymentSystem paymentSystem = new PaymentSystem(new CashPayment());
 
     /**
      * Konstruktor: Befüllt den Automaten mit 6 Dummy-Getränken.
@@ -87,22 +93,8 @@ public class DrinkMachine {
                 continue; // Zurück zum Menü
             }
 
-            // Geld sammeln; null -> Vorgang abgebrochen
-            BigDecimal totalPaid = promptMoneyUntilPriceOrQuit(product);
-            if (totalPaid == null) {
-                System.out.println("Vorgang abgebrochen.\n");
-                continue;
-            }
-
-            // Kauf durchführen: Bestand mindern, Rückgeld berechnen, Ausgabe
-            product.dispenseOne();
-            BigDecimal change = totalPaid.subtract(product.getPrice());
-            System.out.println("\nDanke! Bitte entnehmen Sie: " + product.getName());
-
-            // Nur ausgeben, wenn tatsächlich Rückgeld > 0
-            if (change.compareTo(BigDecimal.ZERO) > 0) {
-                System.out.println("Rückgeld: " + fmt(change));
-            }
+            boolean success = paymentSystem.pay(product.getPrice());
+            if (!success) System.out.println("Zahlung fehlgeschlagen.\n");
 
             System.out.println("Verbleibender Bestand von \"" + product.getName() + "\": " + product.getStock());
             System.out.println(); // Leerzeile für Lesbarkeit
@@ -185,57 +177,6 @@ public class DrinkMachine {
         }
     }
 
-    /**
-     * Fragt so lange Geldbeträge ab, bis der Preis des gewählten Getränks erreicht ist,
-     * oder der Nutzer aktiv abbricht.
-     *
-     * Rückgabe:
-     *  - Summe der eingezahlten Beträge (>= Preis)
-     *  - null bei aktivem Abbruch ('q'/'quit'/'abbruch')
-     *
-     * Validierung:
-     *  - Erlaubt sind Ganzzahlen (z. B. "2") oder Dezimalzahlen mit 1–2 Nachkommastellen
-     *    (z. B. "1,5" oder "1.50"). RegEx: "\\d+(?:[.,]\\d{1,2})?"
-     *  - Komma oder Punkt als Dezimaltrenner (wird einheitlich in '.' umgewandelt)
-     *  - Negative oder 0-Beträge werden abgelehnt
-     */
-    private BigDecimal promptMoneyUntilPriceOrQuit(Product product) {
-        System.out.println("\nAusgewählt: " + product.getName() + " (" + fmt(product.getPrice()) + ")");
-        BigDecimal total = BigDecimal.ZERO;
-
-        // Solange weiter einwerfen, bis total >= Preis
-        while (total.compareTo(product.getPrice()) < 0) {
-            BigDecimal missing = product.getPrice().subtract(total);
-            System.out.print("Bitte Betrag eingeben (fehlend: " + fmt(missing) + ", 'q' für Abbruch): ");
-            String in = readLine();
-
-            // Aktiver Abbruch (z. B. Tippfehler oder Meinungsänderung)
-            if (isQuit(in)) return null;
-
-            // Versuch, einen gültigen Geldbetrag zu parsen
-            Optional<BigDecimal> maybe = tryParseMoney(in);
-            if (maybe.isEmpty()) {
-                System.out.println("Ungültige Eingabe. Bitte eine Zahl im Format z. B. 2, 2.00 oder 1,50 eingeben.");
-                continue;
-            }
-
-            BigDecimal value = maybe.get();
-
-            // Keine Null- oder Negativbeträge akzeptieren
-            if (value.compareTo(BigDecimal.ZERO) <= 0) {
-                System.out.println("Bitte einen Betrag > 0 eingeben.");
-                continue;
-            }
-
-            // Betrag akzeptieren und zur Gesamtsumme addieren
-            total = total.add(value);
-            System.out.println("Bisher eingezahlt: " + fmt(total));
-        }
-
-        // Hier ist total >= Preis
-        return total;
-    }
-
     // ------------------------------------------------------------------------
     // Parsing / Validierungs-Hilfen
     // ------------------------------------------------------------------------
@@ -255,39 +196,6 @@ public class DrinkMachine {
             return Optional.of(Integer.parseInt(s));
         } catch (NumberFormatException e) {
             // Sehr große Zahlen würden hier landen
-            return Optional.empty();
-        }
-    }
-
-    /**
-     * Parst einen Geldbetrag mit optionalen Nachkommastellen (1–2),
-     * akzeptiert Komma ODER Punkt als Dezimaltrenner.
-     *
-     * RegEx-Erklärung:
-     *   \\d+                  -> mind. eine Ziffer (Ganzzahlteil)
-     *   (?:[.,]\\d{1,2})?    -> optional: Komma/Punkt + 1..2 Ziffern (Nachkomma)
-     *
-     * Beispiele gültig: "2", "2.0", "2.00", "1,5", "1,50"
-     * Beispiele ungültig: "2.", "1,234", "-1", "abc", "1,2,3"
-     */
-    private Optional<BigDecimal> tryParseMoney(String in) {
-        String s = in.trim();
-
-        if (!s.matches("\\d+(?:[.,]\\d{1,2})?")) return Optional.empty();
-
-        // Einheitlicher Dezimaltrenner: Punkt
-        s = s.replace(',', '.');
-
-        try {
-            // Scale=2 erzwingen; HALF_UP = kaufmännisches Runden
-            BigDecimal val = new BigDecimal(s).setScale(2, RoundingMode.HALF_UP);
-
-            // negative Werte ausschließen
-            if (val.compareTo(BigDecimal.ZERO) < 0) return Optional.empty();
-
-            return Optional.of(val);
-        } catch (NumberFormatException e) {
-            // Sollte bei obiger RegEx selten passieren, aber sicher ist sicher
             return Optional.empty();
         }
     }
