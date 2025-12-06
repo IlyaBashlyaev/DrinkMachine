@@ -4,6 +4,7 @@ import java.util.*;
 import payment_system.CashPayment;
 import payment_system.PaymentSystem;
 import product.Product;
+import product.ProductCatalog;
 import product.ProductInfo;
 
 /**

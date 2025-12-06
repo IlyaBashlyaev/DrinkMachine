@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac248886-0ca9-4a73-84d8-66371cf334d4" name="Changes" comment="Distribute products across two vending machines">
+    <list default="true" id="ac248886-0ca9-4a73-84d8-66371cf334d4" name="Changes" comment="Minor changes with the euro currency">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DrinkMachine$MachineType.class" beforeDir="false" afterPath="$PROJECT_DIR$/DrinkMachine$MachineType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DrinkMachine.class" beforeDir="false" afterPath="$PROJECT_DIR$/DrinkMachine.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DrinkMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/DrinkMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProductCatalog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProductCatalog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/Drink.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/HotDrink.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/Snack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/SnackType.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +144,7 @@
       <workItem from="1764323954587" duration="5192000" />
       <workItem from="1764861017090" duration="2019000" />
       <workItem from="1764922610611" duration="21897000" />
-      <workItem from="1765033839236" duration="5773000" />
+      <workItem from="1765033839236" duration="6514000" />
     </task>
     <task id="LOCAL-00001" summary="Change README.md and Dokumentation.md">
       <option name="closed" value="true" />
@@ -253,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765051544015</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Minor changes with the euro currency">
+      <option name="closed" value="true" />
+      <created>1765059996861</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1765059996861</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,6 +298,7 @@
     <MESSAGE value="Minor changes" />
     <MESSAGE value="Add UML class diagram" />
     <MESSAGE value="Distribute products across two vending machines" />
-    <option name="LAST_COMMIT_MESSAGE" value="Distribute products across two vending machines" />
+    <MESSAGE value="Minor changes with the euro currency" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor changes with the euro currency" />
   </component>
 </project>
