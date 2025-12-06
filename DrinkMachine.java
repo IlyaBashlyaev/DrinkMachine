@@ -1,6 +1,5 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.NumberFormat;
 import java.util.*;
 import payment_system.CashPayment;
 import payment_system.PaymentSystem;
@@ -29,7 +28,6 @@ public class DrinkMachine {
 
     private final Map<MachineType, ProductCatalog> machineCatalogs = new LinkedHashMap<>();
     private final Scanner scanner = new Scanner(System.in);
-    private final NumberFormat CURRENCY = NumberFormat.getCurrencyInstance(Locale.GERMANY);
     private final PaymentSystem paymentSystem = new PaymentSystem(new CashPayment());
 
     public DrinkMachine() {
@@ -164,7 +162,7 @@ public class DrinkMachine {
         int productCount = productCatalog.allProducts().size();
 
         while (true) {
-            System.out.print("\nBitte Auswahl eingeben (1-" + productCount + ", oder 'q'): ");
+            System.out.print("Bitte Auswahl eingeben (1-" + productCount + ", oder 'q'): ");
             String in = readLine();
 
             if (isQuit(in)) return null;
@@ -270,7 +268,9 @@ public class DrinkMachine {
     }
 
     private String fmt(BigDecimal amount) {
-        return CURRENCY.format(amount);
+        BigDecimal scaled = amount.setScale(2, RoundingMode.HALF_UP);
+        String plain = scaled.toPlainString().replace('.', ',');
+        return plain + " EUR";
     }
 
     private MachineType promptMachineSelection() {
@@ -283,7 +283,7 @@ public class DrinkMachine {
         System.out.println("q) Beenden");
 
         while (true) {
-            System.out.print("Auswahl (1-" + machines.size() + ", oder 'q'): ");
+            System.out.print("Bitte Auswahl eingeben (1-" + machines.size() + ", oder 'q'): ");
             String input = readLine();
 
             if (isQuit(input)) return null;
