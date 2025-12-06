@@ -24,7 +24,8 @@ classDiagram
         - static strip(BigDecimal value) String
     }
 
-    enum MachineType {
+    class MachineType {
+        <<enumeration>>
         SNACKAUTOMAT
         GEMISCHTER_AUTOMAT
         + getDisplayName() String
