@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac248886-0ca9-4a73-84d8-66371cf334d4" name="Changes" comment="Refactoring to the folders &quot;drink&quot; and &quot;snack&quot;" />
+    <list default="true" id="ac248886-0ca9-4a73-84d8-66371cf334d4" name="Changes" comment="Refactoring to the folders &quot;drink&quot; and &quot;snack&quot;">
+      <change afterPath="$PROJECT_DIR$/Dokumentation/Dokumentation.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dokumentation/UML_Aktivitaetsdiagramm.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/drink/Drink.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/drink/Drink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/drink/HotDrink.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/drink/HotDrink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/snack/Snack.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/snack/Snack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/snack/SnackType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/snack/SnackType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentation/UML_Klassendiagramm.md" beforeDir="false" afterPath="$PROJECT_DIR$/Dokumentation/UML_Klassendiagramm.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DrinkMachine$MachineType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DrinkMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/DrinkMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,7 +152,7 @@
       <workItem from="1764323954587" duration="5192000" />
       <workItem from="1764861017090" duration="2019000" />
       <workItem from="1764922610611" duration="21897000" />
-      <workItem from="1765033839236" duration="6821000" />
+      <workItem from="1765033839236" duration="7496000" />
     </task>
     <task id="LOCAL-00001" summary="Change README.md and Dokumentation.md">
       <option name="closed" value="true" />
@@ -264,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765060866937</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Refactoring to the folders &quot;drink&quot; and &quot;snack&quot;">
+      <option name="closed" value="true" />
+      <created>1765061040260</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1765061040260</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

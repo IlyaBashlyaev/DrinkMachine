@@ -1,16 +1,40 @@
 # DrinkMachine
 
-Dies ist die README-Datei des Projekts. Hier sollten Sie Ihr Projekt
-beschreiben.
-Erzählen Sie dem Leser (jemand, der nichts über dieses Projekt weiss),
-alles, was er/sie wissen muss. Üblicherweise sollte der Kommentar 
-zumindest die folgenden Angaben umfassen:
+Die konsolenbasierte Simulation zweier Verkaufsautomaten (Snackautomat, Gemischter Automat). Nutzer wählen den Automaten, sehen die verfügbaren Produkte mit Nährwerten, zahlen per Bargeld-Simulation und erhalten Rückgeld.
 
----
+## Features
+- Zwei getrennte Automaten mit eigenem Bestand und Sortiment.
+- 11 vordefinierte Produkte inkl. Nährwert- und Koffeinangaben.
+- Robuste Eingabevalidierung (Menü, Geldbeträge) und jederzeitiger Abbruch (`q`, `quit`, `abbruch`).
+- Preisformatierung ohne Locale-Probleme (`X,YY€`).
+- Erweiterbar über zusätzliche Automaten, Produkte oder Zahlungsarten.
 
-PROJEKTBEZEICHNUNG:<br>
-PROJEKTZWECK:<br>
-VERSION oder DATUM:<br>
-WIE IST DAS PROJEKT ZU STARTEN:<br>
-AUTOR(EN):<br>
-BENUTZERHINWEISE:
+## Projektstruktur
+- `DrinkMachine.java` – Einstiegspunkt, Automaten- und UI-Logik.
+- `product/` – Basismodelle (`Product`, `ProductInfo`, `ProductCatalog`).
+- `product/drink/` – Getränke-Spezialisierungen (`Drink`, `HotDrink`).
+- `product/snack/` – Snack-Spezialisierungen (`Snack`, `SnackType`).
+- `payment_system/` – Zahlungsschnittstelle (`PaymentMethod`) und Implementierung (`CashPayment`, `PaymentSystem`).
+- `Dokumentation/` – UML-Diagramme und Projektdokumentation.
+- `_Ignored_files_/Liste_der_neuen_Produkte/` – Produktliste als Datenquelle.
+
+## Build und Run
+1. Kompilieren:
+   ```bash
+   javac DrinkMachine.java
+   ```
+2. Starten:
+   ```bash
+   java DrinkMachine
+   ```
+
+## Nutzung
+- Schritt 1: Automaten wählen (Snackautomat oder Gemischter Automat).
+- Schritt 2: Produktnummer eingeben oder mit `q/quit/abbruch` zurück/enden.
+- Schritt 3: Geldbeträge eingeben, bis der Preis erreicht ist; Abbruch jederzeit möglich.
+- Ausgabe: Produkt wird ausgegeben, Bestand reduziert, Rückgeld angezeigt.
+
+## Dokumentation
+- Klassendiagramm: `Dokumentation/UML_Klassendiagramm.md`
+- Aktivitätsdiagramm: `Dokumentation/UML_Aktivitaetsdiagramm.md`
+- Projektdoku: `Dokumentation/Dokumentation.md`

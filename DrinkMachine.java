@@ -11,22 +11,6 @@ import product.ProductInfo;
  * Konsolenbasierter Automat mit Snacks und Drinks in einem Modus.
  */
 public class DrinkMachine {
-
-    private enum MachineType {
-        SNACKAUTOMAT("Snackautomat"),
-        GEMISCHTER_AUTOMAT("Gemischter Automat");
-
-        private final String displayName;
-
-        MachineType(String displayName) {
-            this.displayName = displayName;
-        }
-
-        public String getDisplayName() {
-            return displayName;
-        }
-    }
-
     private final Map<MachineType, ProductCatalog> machineCatalogs = new LinkedHashMap<>();
     private final Scanner scanner = new Scanner(System.in);
     private final PaymentSystem paymentSystem = new PaymentSystem(new CashPayment());

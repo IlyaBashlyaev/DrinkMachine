@@ -1,20 +1,18 @@
 ```mermaid
 classDiagram
     class DrinkMachine {
-        - ProductCatalog productCatalog
+        - Map~MachineType, ProductCatalog~ machineCatalogs
         - Scanner scanner
-        - NumberFormat CURRENCY
         - PaymentSystem paymentSystem
-        
         + DrinkMachine()
         + static main(String[] args) void
-        
+        - seedCatalogs() void
         - run() void
-        - seedCatalog() void
         - printlnHeader() void
-        - showMenu() void
-        - promptSelectionOrQuit() Integer
+        - showMenu(ProductCatalog catalog, MachineType machine) void
+        - promptSelectionOrQuit(ProductCatalog catalog) Integer
         - promptMoneyUntilPriceOrQuit(Product product) BigDecimal
+        - promptMachineSelection() MachineType
         - tryParsePositiveInt(String in) Optional~Integer~
         - tryParseMoney(String in) Optional~BigDecimal~
         - isQuit(String in) boolean
@@ -24,6 +22,12 @@ classDiagram
         - printNutrition(Product product) void
         - static bd(String s) BigDecimal
         - static strip(BigDecimal value) String
+    }
+
+    enum MachineType {
+        SNACKAUTOMAT
+        GEMISCHTER_AUTOMAT
+        + getDisplayName() String
     }
     
     class Product {
@@ -122,13 +126,14 @@ classDiagram
         + refund(BigDecimal amount) void
     }
     
-    DrinkMachine "1" *-- "1" ProductCatalog : manages
+    DrinkMachine "1" *-- "2" ProductCatalog : manages
     ProductCatalog "1" o-- "*" Product : contains
     Product "1" *-- "0..1" ProductInfo : includes
     Product <|-- Drink
     Drink <|-- HotDrink
     Product <|-- Snack
     Snack --> SnackType
+    DrinkMachine ..> MachineType
     DrinkMachine --> PaymentSystem : uses
     PaymentSystem --> PaymentMethod : uses
     PaymentMethod <|.. CashPayment
