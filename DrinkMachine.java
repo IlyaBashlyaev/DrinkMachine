@@ -1,10 +1,7 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.NumberFormat;
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
-import java.util.Scanner;
+import java.util.*;
 import payment_system.CashPayment;
 import payment_system.PaymentSystem;
 import product.Product;
@@ -15,13 +12,28 @@ import product.ProductInfo;
  */
 public class DrinkMachine {
 
-    private final ProductCatalog productCatalog = new ProductCatalog();
+    private enum MachineType {
+        SNACKAUTOMAT("Snackautomat"),
+        GEMISCHTER_AUTOMAT("Gemischter Automat");
+
+        private final String displayName;
+
+        MachineType(String displayName) {
+            this.displayName = displayName;
+        }
+
+        public String getDisplayName() {
+            return displayName;
+        }
+    }
+
+    private final Map<MachineType, ProductCatalog> machineCatalogs = new LinkedHashMap<>();
     private final Scanner scanner = new Scanner(System.in);
     private final NumberFormat CURRENCY = NumberFormat.getCurrencyInstance(Locale.GERMANY);
     private final PaymentSystem paymentSystem = new PaymentSystem(new CashPayment());
 
     public DrinkMachine() {
-        seedCatalog();
+        seedCatalogs();
     }
 
     /** Einstiegspunkt des Programms. */
@@ -29,36 +41,51 @@ public class DrinkMachine {
         new DrinkMachine().run();
     }
 
-    private void seedCatalog() {
-        productCatalog.registerProduct(new Product("Merkur Riegel", bd("2.00"), 20, bd("50"), "g", 250, bd("23.5"), bd("12.5"), bd("7.5"), 0));
-        productCatalog.registerProduct(new Product("Saturn Ringe", bd("5.00"), 15, bd("75"), "g", 255, bd("34.5"), bd("0.15"), bd("0.08"), 0));
-        productCatalog.registerProduct(new Product("Lakritzstangen", bd("2.30"), 25, bd("25"), "g", 88, bd("8.8"), bd("0.13"), bd("0.03"), 0));
-        productCatalog.registerProduct(new Product("DoubleChoc Riegel", bd("3.00"), 20, bd("55"), "g", 286, bd("26.4"), bd("15.4"), bd("9.4"), 0));
-        productCatalog.registerProduct(new Product("Silberbaeren Tuete", bd("7.20"), 15, bd("100"), "g", 343, bd("47.0"), bd("0.5"), bd("0.1"), 0));
+    private void seedCatalogs() {
+        machineCatalogs.put(MachineType.SNACKAUTOMAT, new ProductCatalog());
+        machineCatalogs.put(MachineType.GEMISCHTER_AUTOMAT, new ProductCatalog());
 
-        productCatalog.registerProduct(new Product("NeptunDrink", bd("2.50"), 20, bd("330"), "ml", 139, bd("35.0"), bd("0.0"), bd("0.0"), 0));
-        productCatalog.registerProduct(new Product("AquaPlus", bd("2.00"), 10, bd("500"), "ml", 0, bd("0.0"), bd("0.0"), bd("0.0"), 0));
-        productCatalog.registerProduct(new Product("EnergyX", bd("4.00"), 15, bd("250"), "ml", 113, bd("27.5"), bd("0.0"), bd("0.0"), 80));
-        productCatalog.registerProduct(new Product("Kaffee (schwarz)", bd("2.50"), 30, bd("200"), "ml", 2, bd("0.0"), bd("0.0"), bd("0.0"), 95));
-        productCatalog.registerProduct(new Product("Espresso", bd("3.50"), 15, bd("30"), "ml", 3, bd("0.0"), bd("0.0"), bd("0.0"), 63));
-        productCatalog.registerProduct(new Product("Cappuccino", bd("5.00"), 15, bd("200"), "ml", 120, bd("6.0"), bd("5.0"), bd("3.4"), 75));
+        ProductCatalog snackCatalog = machineCatalogs.get(MachineType.SNACKAUTOMAT);
+        snackCatalog.registerProduct(new Product("Merkur Riegel", bd("2.00"), 20, bd("50"), "g", 250, bd("23.5"), bd("12.5"), bd("7.5"), 0));
+        snackCatalog.registerProduct(new Product("Saturn Ringe", bd("5.00"), 15, bd("75"), "g", 255, bd("34.5"), bd("0.15"), bd("0.08"), 0));
+        snackCatalog.registerProduct(new Product("Lakritzstangen", bd("2.30"), 25, bd("25"), "g", 88, bd("8.8"), bd("0.13"), bd("0.03"), 0));
+        snackCatalog.registerProduct(new Product("DoupleChoc Riegel", bd("3.00"), 20, bd("55"), "g", 286, bd("26.4"), bd("15.4"), bd("9.4"), 0));
+        snackCatalog.registerProduct(new Product("Silberbaeren Tuete", bd("7.20"), 15, bd("100"), "g", 343, bd("47.0"), bd("0.5"), bd("0.1"), 0));
+
+        ProductCatalog mixedCatalog = machineCatalogs.get(MachineType.GEMISCHTER_AUTOMAT);
+        mixedCatalog.registerProduct(new Product("NeptunDrink", bd("2.50"), 20, bd("330"), "ml", 139, bd("35.0"), bd("0.0"), bd("0.0"), 0));
+        mixedCatalog.registerProduct(new Product("Saturn Ringe", bd("5.00"), 15, bd("75"), "g", 255, bd("34.5"), bd("0.15"), bd("0.08"), 0));
+        mixedCatalog.registerProduct(new Product("Lakritzstangen", bd("2.30"), 25, bd("25"), "g", 88, bd("8.8"), bd("0.13"), bd("0.03"), 0));
+        mixedCatalog.registerProduct(new Product("AquaPlus", bd("2.00"), 10, bd("500"), "ml", 0, bd("0.0"), bd("0.0"), bd("0.0"), 0));
+        mixedCatalog.registerProduct(new Product("EnergyX", bd("4.00"), 15, bd("250"), "ml", 113, bd("27.5"), bd("0.0"), bd("0.0"), 80));
+        mixedCatalog.registerProduct(new Product("Kaffee (schwarz)", bd("2.50"), 30, bd("200"), "ml", 2, bd("0.0"), bd("0.0"), bd("0.0"), 95));
+        mixedCatalog.registerProduct(new Product("Espresso", bd("3.50"), 15, bd("30"), "ml", 3, bd("0.0"), bd("0.0"), bd("0.0"), 63));
+        mixedCatalog.registerProduct(new Product("Cappuccino", bd("5.00"), 15, bd("200"), "ml", 120, bd("6.0"), bd("5.0"), bd("3.4"), 75));
     }
 
     /**
      * Hauptprogramm-Schleife:
-     * 1) Menue anzeigen
-     * 2) Auswahl einlesen (mit Wiederholung/Validierung/Abbruch)
-     * 3) Falls verfuegbar: Geld einnehmen (bis Preis erreicht oder Abbruch)
-     * 4) Ware ausgeben, Rueckgeld berechnen, Bestand reduzieren
-     * 5) Zurueck zum Menue
+     * 1) Automaten-Typ waehlen
+     * 2) Menue des Automaten anzeigen
+     * 3) Auswahl einlesen (mit Wiederholung/Validierung/Abbruch)
+     * 4) Falls verfuegbar: Geld einnehmen (bis Preis erreicht oder Abbruch)
+     * 5) Ware ausgeben, Rueckgeld berechnen, Bestand reduzieren
+     * 6) Zurueck zur Automatenauswahl
      */
     private void run() {
         printlnHeader();
 
         while (true) {
-            showMenu();
+            MachineType machine = promptMachineSelection();
+            if (machine == null) {
+                System.out.println("\nAuf Wiedersehen!");
+                break;
+            }
 
-            Integer choice = promptSelectionOrQuit();
+            ProductCatalog productCatalog = machineCatalogs.get(machine);
+            showMenu(productCatalog, machine);
+
+            Integer choice = promptSelectionOrQuit(productCatalog);
             if (choice == null) {
                 System.out.println("\nAuf Wiedersehen!");
                 break;
@@ -102,15 +129,16 @@ public class DrinkMachine {
         System.out.println("           DRINK MACHINE v2         ");
         System.out.println("====================================\n");
         System.out.println("Eingaben:");
+        System.out.println("- Zuerst Automaten-Typ waehlen");
         System.out.println("- Menue: Nummer des Produkts eingeben");
         System.out.println("- Geld: Betrag in Euro, z. B. 2 oder 1,50 (Komma/Punkt moeglich)");
         System.out.println("- Abbruch jederzeit mit: q | abbruch | quit\n");
     }
 
     /** Aktuelles Menue mit allen Produkten, Preisen und Bestaenden anzeigen. */
-    private void showMenu() {
+    private void showMenu(ProductCatalog productCatalog, MachineType machine) {
         List<Product> products = productCatalog.allProducts();
-        System.out.println("=== Auswahl ===");
+        System.out.println("\n=== " + machine.getDisplayName() + " ===");
         for (int i = 0; i < products.size(); i++) {
             Product product = products.get(i);
             String line = String.format(
@@ -132,7 +160,7 @@ public class DrinkMachine {
      *  - Zahl zwischen 1 und Anzahl der Produkte
      *  - null, wenn Nutzer 'q'/'quit'/'abbruch' eingibt (aktiver Abbruch)
      */
-    private Integer promptSelectionOrQuit() {
+    private Integer promptSelectionOrQuit(ProductCatalog productCatalog) {
         int productCount = productCatalog.allProducts().size();
 
         while (true) {
@@ -232,6 +260,7 @@ public class DrinkMachine {
         ProductInfo info = product.getInfo();
         if (info == null) return;
 
+        System.out.println("\nProdukt: " + product.getName());
         System.out.println("Naehrwerte pro Portion (" + strip(info.getPortionSize()) + info.getPortionUnit() + "):");
         System.out.println("  kcal: " + info.getKcalPerPortion());
         System.out.println("  Zucker: " + strip(info.getSugarPerPortion()) + " g");
@@ -242,6 +271,37 @@ public class DrinkMachine {
 
     private String fmt(BigDecimal amount) {
         return CURRENCY.format(amount);
+    }
+
+    private MachineType promptMachineSelection() {
+        List<MachineType> machines = new ArrayList<>(machineCatalogs.keySet());
+
+        System.out.println("Bitte Automaten auswaehlen:");
+        for (int i = 0; i < machines.size(); i++) {
+            System.out.println((i + 1) + ") " + machines.get(i).getDisplayName());
+        }
+        System.out.println("q) Beenden");
+
+        while (true) {
+            System.out.print("Auswahl (1-" + machines.size() + ", oder 'q'): ");
+            String input = readLine();
+
+            if (isQuit(input)) return null;
+
+            Optional<Integer> maybe = tryParsePositiveInt(input);
+            if (!maybe.isPresent()) {
+                System.out.println("Ungueltige Eingabe. Bitte erneut versuchen.");
+                continue;
+            }
+
+            int choice = maybe.get();
+            if (choice < 1 || choice > machines.size()) {
+                System.out.println("Ungueltige Auswahl. Bitte 1-" + machines.size() + " waehlen.");
+                continue;
+            }
+
+            return machines.get(choice - 1);
+        }
     }
 
     private boolean isQuit(String in) {

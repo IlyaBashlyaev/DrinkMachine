@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac248886-0ca9-4a73-84d8-66371cf334d4" name="Changes" comment="Minor changes">
-      <change afterPath="$PROJECT_DIR$/UML/UML.md" afterDir="false" />
+    <list default="true" id="ac248886-0ca9-4a73-84d8-66371cf334d4" name="Changes" comment="Add UML class diagram">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CashPayment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DrinkCatalog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HotDrink.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentMethod.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentSystem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProductInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnackType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drink.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DrinkMachine.class" beforeDir="false" afterPath="$PROJECT_DIR$/DrinkMachine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DrinkMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/DrinkMachine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,24 +58,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/ilyabashlyaev/RBBK/Mittelstufe/STD/OOP/DrinkMachine/_Ignored_files_/Dokumentation/UML",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ilyabashlyaev/RBBK/Mittelstufe/STD/OOP/DrinkMachine/_Ignored_files_/Dokumentation/UML&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/_Ignored_files_/Dokumentation/UML" />
@@ -145,7 +138,8 @@
       <workItem from="1764278349736" duration="592000" />
       <workItem from="1764323954587" duration="5192000" />
       <workItem from="1764861017090" duration="2019000" />
-      <workItem from="1764922610611" duration="21321000" />
+      <workItem from="1764922610611" duration="21897000" />
+      <workItem from="1765033839236" duration="5065000" />
     </task>
     <task id="LOCAL-00001" summary="Change README.md and Dokumentation.md">
       <option name="closed" value="true" />
@@ -243,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764976953996</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add UML class diagram">
+      <option name="closed" value="true" />
+      <created>1764979632575</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1764979632575</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,6 +275,7 @@
     <MESSAGE value="More bugfixing of the program" />
     <MESSAGE value="Implement the commit &quot;Updated everything to support the unified snack+drink machine with nutrition details&quot; to the master branch" />
     <MESSAGE value="Minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor changes" />
+    <MESSAGE value="Add UML class diagram" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add UML class diagram" />
   </component>
 </project>
