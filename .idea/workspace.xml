@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac248886-0ca9-4a73-84d8-66371cf334d4" name="Changes" comment="Implement the commit &quot;Updated everything to support the unified snack+drink machine with nutrition details&quot; to the master branch">
+    <list default="true" id="ac248886-0ca9-4a73-84d8-66371cf334d4" name="Changes" comment="Minor changes">
+      <change afterPath="$PROJECT_DIR$/UML/UML.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment_system/CashPayment.class" beforeDir="false" afterPath="$PROJECT_DIR$/payment_system/CashPayment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment_system/CashPayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment_system/CashPayment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CashPayment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DrinkCatalog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HotDrink.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentMethod.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentSystem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProductInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Snack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnackType.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +73,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/ilyabashlyaev/RBBK/Mittelstufe/STD/OOP/DrinkMachine/PaymentSystem",
+    "last_opened_file_path": "/Users/ilyabashlyaev/RBBK/Mittelstufe/STD/OOP/DrinkMachine/_Ignored_files_/Dokumentation/UML",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -77,17 +85,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/_Ignored_files_/Dokumentation/UML" />
       <recent name="$PROJECT_DIR$/PaymentSystem" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/PaymentSystem 05.12.2025" />
       <recent name="$PROJECT_DIR$/Dokumentation" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/_Ignored_files_" />
+      <recent name="$PROJECT_DIR$/UML" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/_Ignored_files_" />
       <recent name="$PROJECT_DIR$/payment_system" />
       <recent name="$PROJECT_DIR$/PaymentSystem" />
-      <recent name="$PROJECT_DIR$/Dokumentation" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -136,7 +145,7 @@
       <workItem from="1764278349736" duration="592000" />
       <workItem from="1764323954587" duration="5192000" />
       <workItem from="1764861017090" duration="2019000" />
-      <workItem from="1764922610611" duration="18860000" />
+      <workItem from="1764922610611" duration="21321000" />
     </task>
     <task id="LOCAL-00001" summary="Change README.md and Dokumentation.md">
       <option name="closed" value="true" />
@@ -226,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764976391445</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Minor changes">
+      <option name="closed" value="true" />
+      <created>1764976953996</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1764976953996</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,6 +272,7 @@
     <MESSAGE value="Bugfixing of the program" />
     <MESSAGE value="More bugfixing of the program" />
     <MESSAGE value="Implement the commit &quot;Updated everything to support the unified snack+drink machine with nutrition details&quot; to the master branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement the commit &quot;Updated everything to support the unified snack+drink machine with nutrition details&quot; to the master branch" />
+    <MESSAGE value="Minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor changes" />
   </component>
 </project>
