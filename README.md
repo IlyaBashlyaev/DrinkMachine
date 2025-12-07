@@ -6,7 +6,7 @@ Die konsolenbasierte Simulation zweier Verkaufsautomaten (Snackautomat, Gemischt
 - Zwei getrennte Automaten mit eigenem Bestand und Sortiment.
 - 11 vordefinierte Produkte inkl. Nährwert- und Koffeinangaben.
 - Robuste Eingabevalidierung (Menü, Geldbeträge) und jederzeitiger Abbruch (`q`, `quit`, `abbruch`).
-- Preisformatierung ohne Locale-Probleme (`X,YY€`).
+- Preisformatierung ohne Locale-Probleme (`X,YY EUR`).
 - Erweiterbar über zusätzliche Automaten, Produkte oder Zahlungsarten.
 
 ## Projektstruktur
@@ -18,7 +18,7 @@ Die konsolenbasierte Simulation zweier Verkaufsautomaten (Snackautomat, Gemischt
 - `Dokumentation/` – UML-Diagramme und Projektdokumentation.
 - `_Ignored_files_/Liste_der_neuen_Produkte/` – Produktliste als Datenquelle.
 
-## Build und Run
+## Build & Run
 1. Kompilieren:
    ```bash
    javac DrinkMachine.java
